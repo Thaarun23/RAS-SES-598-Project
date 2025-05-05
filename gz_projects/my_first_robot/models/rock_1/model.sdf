@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <model name="rock_1">
+    <static>true</static>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <sphere>
+            <radius>0.5</radius> <!-- Size of the rock -->
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0.4 0.4 0.4 1</ambient> <!-- Gray color -->
+        </material>
+      </visual>
+
+      <collision name="collision">
+        <geometry>
+          <sphere>
+            <radius>0.5</radius>
+          </sphere>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>
