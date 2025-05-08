@@ -1,0 +1,59 @@
+export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/gz_projects/my_first_robot/models
+gz sim ~/gz_projects/my_first_robot/worlds/rock_world.world
+
+
+
+
+
+
+ros2 run ros_gz_bridge parameter_bridge \
+  /cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist \
+  /model/diffbot/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry \
+  /model/diffbot/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V \
+  /world/my_world/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock \
+  "/world/my_world/model/diffbot/link/base_link/sensor/rgb_camera/image@sensor_msgs/msg/Image@gz.msgs.Image" \
+  "/world/my_world/model/diffbot/link/base_link/sensor/rgb_camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo" \
+  "/world/my_world/model/diffbot/link/base_link/sensor/depth_camera/depth_image@sensor_msgs/msg/Image@gz.msgs.Image" \
+  "/world/my_world/model/diffbot/link/base_link/sensor/depth_camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo" \
+  --ros-args \
+    -r /model/diffbot/tf:=/tf \
+    -r /world/my_world/clock:=/clock
+
+
+
+# RGB camera
+ros2 run tf2_ros static_transform_publisher \
+  0 0 0.20  1.5708 0 0  diffbot/base_link diffbot/base_link/rgb_camera
+
+# Depth camera
+ros2 run tf2_ros static_transform_publisher \
+  0 0 0.20  1.5708 0 0  diffbot/base_link diffbot/base_link/depth_camera
+
+
+
+ros2 launch rtabmap_launch rtabmap.launch.py \
+  rtabmap_args:="--delete_db_on_start" \
+  rgb_topic:=/world/my_world/model/diffbot/link/base_link/sensor/rgb_camera/image \
+  depth_topic:=/world/my_world/model/diffbot/link/base_link/sensor/depth_camera/depth_image \
+  camera_info_topic:=/world/my_world/model/diffbot/link/base_link/sensor/rgb_camera/camera_info \
+  odom_topic:=/model/diffbot/odometry \
+  odom_frame_id:=diffbot/odom \
+  frame_id:=diffbot/base_link \
+  map_frame_id:=map \
+  use_sim_time:=true \
+  approx_sync:=true \
+  rviz:=true
+
+
+
+
+tf for odom_est: 
+
+
+source /opt/ros/jazzy/setup.bash
+
+ros2 run ros_gz_bridge parameter_bridge \
+  "/world/my_world/dynamic_pose/info@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V" \
+  --ros-args \
+    -r /world/my_world/dynamic_pose/info:=/tf
+
