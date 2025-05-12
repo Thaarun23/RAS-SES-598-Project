@@ -1,7 +1,10 @@
-Simulation of a Planetary Rover for Autonomous
-Navigation to a Region of Interest
-S. Thaarun, Vedaantha Reddy, Sathvik Merugu, Chakradhar Reddy Lakkireddy
+# **Simulation of a Planetary Rover for Autonomous**#
+# **Navigation to a Region of Interest**
+
+*S. Thaarun, Vedaantha Reddy, Sathvik Merugu, Chakradhar Reddy Lakkireddy*
+
 Arizona State University, Tempe, AZ, USA
+
 Email: tsivaku1@asu.edu, vreddy29@asu.edu, smerugu5@asu.edu, clakkire@asu.edu
 
 
