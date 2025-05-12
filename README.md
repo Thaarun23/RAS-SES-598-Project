@@ -29,6 +29,7 @@ The specific objectives of this simulation include:
 4)	Compare current and prior data to identify anomalies.
 5)	Navigate to the region of interest using the object’s positional data.
 6)	Update the knowledge base to avoid revisiting previously explored anomalies.
+
 The initial goal in detecting the anomalous rocks was to obtain a point cloud generation of the rocks to regenerate the full individual rock, once that is obtained and isolated, any future encounters of the rock will try to do brute force feature matching, via a random pose generation. Once that is obtained the robot will then be able to estimate with some level of confidence whether or not the rock detected was indeed the rock that was present in the existing area in a previous run. But due to the improper generation of the point cloud this could not be achieved.
 
 IV. RELATED WORK
