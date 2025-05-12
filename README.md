@@ -1,4 +1,4 @@
-# **Simulation of a Planetary Rover for Autonomous**#
+# **Simulation of a Planetary Rover for Autonomous**
 # **Navigation to a Region of Interest**
 
 *S. Thaarun, Vedaantha Reddy, Sathvik Merugu, Chakradhar Reddy Lakkireddy*
