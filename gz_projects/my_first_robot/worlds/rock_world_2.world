@@ -54,10 +54,7 @@
 
     
     
-    <include>
-      <uri>model://diffbot</uri>
-      <pose>0 0 0.1 0 0 0</pose> <!-- center -->
-    </include>
+  
 
     <!-- Rock 1 -->
     <include>
@@ -70,6 +67,22 @@
       <uri>model://Falling Rock 2</uri>
       <pose>-3 -1 0 0 0 0</pose>
     </include>
+    <!-- Rock 3 -->
+    <include>
+      <uri>model://Falling Rock 3</uri>
+      <pose>-3 7 0 0 0 0</pose>
+    </include>
+    
+<include>
+  <uri>model://rover_ackermann</uri>
+  <name>rover_ackermann</name>
+  <pose>0 0 0.1 0 0 0</pose>
+</include>
 
+
+    
+    
+    
+    
   </world>
 </sdf>

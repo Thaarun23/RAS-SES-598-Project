@@ -45,6 +45,16 @@
         <far>10.0</far>
       </clip>
     </depth_camera>
+      <!-- point-cloud generator for Ignition Gazebo -->
+  <plugin name="point_cloud" filename="ignition-gazebo-pointcloud-system">
+    <!-- must exactly match your sensor’s name -->
+    <sensorName>depth_camera</sensorName>
+    <!-- these ranges match your clip settings -->
+    <minRange>0.1</minRange>
+    <maxRange>10</maxRange>
+    <!-- topic where the PC will be published -->
+    <topicName>/world/my_world/model/diffbot/link/base_link/sensor/depth_camera/depth_image/points</topicName>
+  </plugin>
   </sensor>
  <sensor name="rgb_camera" type="camera">
     <!-- position it just above the body -->
@@ -177,7 +187,7 @@
       <right_joint>joint_wheel_fr</right_joint>
       <right_joint>joint_wheel_rr</right_joint>
 
-      <wheel_separation>0.4</wheel_separation>
+      <wheel_separation>1.08</wheel_separation>
       <wheel_radius>0.07</wheel_radius>
 
       <topic>/cmd_vel</topic>
